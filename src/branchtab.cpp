@@ -262,30 +262,45 @@ void BranchTab::predictorChanged(bool is_preset) {
       this->num_pc_check_bits = 8;
       this->num_history_bits = 8;
       this->num_prediction_bits = 2;
+      m_ui->pc_check_bits->setEnabled(true);
+      m_ui->history_bits->setEnabled(true);
+      m_ui->prediction_bits->setEnabled(true);
       break;
     case 1:
       this->predictor = 1; // Global Predictor
       this->num_pc_check_bits = 0;
       this->num_history_bits = 8;
       this->num_prediction_bits = 2;
+      m_ui->pc_check_bits->setEnabled(false);
+      m_ui->history_bits->setEnabled(true);
+      m_ui->prediction_bits->setEnabled(true);
       break;
     case 2:
       this->predictor = 2; // Saturating Counter
       this->num_pc_check_bits = 0;
       this->num_history_bits = 0;
       this->num_prediction_bits = 2;
+      m_ui->pc_check_bits->setEnabled(false);
+      m_ui->history_bits->setEnabled(false);
+      m_ui->prediction_bits->setEnabled(true);
       break;
     case 3:
       this->predictor = 3; // Always Taken
       this->num_pc_check_bits = 0;
       this->num_history_bits = 0;
       this->num_prediction_bits = 0;
+      m_ui->pc_check_bits->setEnabled(false);
+      m_ui->history_bits->setEnabled(false);
+      m_ui->prediction_bits->setEnabled(false);
       break;
     case 4:
       this->predictor = 4; // Always Not Taken
       this->num_pc_check_bits = 0;
       this->num_history_bits = 0;
       this->num_prediction_bits = 0;
+      m_ui->pc_check_bits->setEnabled(false);
+      m_ui->history_bits->setEnabled(false);
+      m_ui->prediction_bits->setEnabled(false);
       break;
     }
     bool oldState = m_ui->pc_check_bits->blockSignals(true);
